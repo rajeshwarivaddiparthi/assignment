@@ -25,10 +25,21 @@ public class GreeterService {
         if (isMorning()) {
             return "Good morning " + capitalizedName;
         }
+
+        if (isEvening()) {
+            return "Good evening " + capitalizedName;
+        }
     private boolean isMorning() {
         return LocalTime.now(clock)
                 .isAfter(LocalTime.parse("06:00:00"))
                 && LocalTime.now(clock)
                 .isBefore(LocalTime.parse("12:00:00"));
+    }
+
+    private boolean isEvening() {
+        return LocalTime.now(clock)
+                .isAfter(LocalTime.parse("18:00:00"))
+                && LocalTime.now(clock)
+                .isBefore(LocalTime.parse("22:00:01"));
     }
 }
