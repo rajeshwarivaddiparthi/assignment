@@ -42,4 +42,11 @@ public class GreeterService {
                 && LocalTime.now(clock)
                 .isBefore(LocalTime.parse("22:00:01"));
     }
+
+    private boolean isNight() {
+        return LocalTime.now(clock)
+                .isAfter(LocalTime.parse("22:00:00"))
+                && LocalTime.now(clock)
+                .isBefore(LocalTime.parse("06:00:00"));
+    }
 }
