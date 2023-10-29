@@ -31,4 +31,10 @@ public class GreeterServiceTest {
         String name = greeterService.getGreetMessage("john");
         assertThat(name, is("Good morning John"));
     }
+
+    @Test
+    public void shouldReturnMorningWhenTimeIsBetween6To12() {
+        String name = greeterService.getGreetMessage("john");
+        assertThat(name, is("Good morning John"));
+    }
 }
