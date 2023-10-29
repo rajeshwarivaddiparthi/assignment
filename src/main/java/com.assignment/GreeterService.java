@@ -49,9 +49,16 @@ public class GreeterService {
     }
 
     private boolean isNight() {
-        return LocalTime.now(clock)
-                .isAfter(LocalTime.parse("22:00:00"))
-                && LocalTime.now(clock)
-                .isBefore(LocalTime.parse("06:00:00"));
+        LocalTime actualTime = LocalTime.now(clock);
+        boolean isAfterEvening = actualTime.isAfter(LocalTime.parse("22:00:00"));
+        boolean beforeMidnight = actualTime.isBefore(LocalTime.parse("23:59:59"));
+        boolean isJustBeforeMidnight = actualTime.equals(LocalTime.parse("23:59:59"));
+        boolean isMidnight = actualTime.equals(LocalTime.parse("00:00:00"));
+        boolean isAfterMidnight = actualTime.isAfter(LocalTime.parse("00:00:00"));
+        boolean beforeMorning = actualTime.isBefore(LocalTime.parse("06:00:01"));
+        return (isAfterEvening && beforeMidnight)
+                || isJustBeforeMidnight
+                || isMidnight
+                || (isAfterMidnight && beforeMorning);
     }
 }
