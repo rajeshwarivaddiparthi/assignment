@@ -21,4 +21,14 @@ public class GreeterService {
         final String capitalizedName = capitalize(name.trim());
 
         log.info("greet method called with name " + capitalizedName);
+
+        if (isMorning()) {
+            return "Good morning " + capitalizedName;
+        }
+    private boolean isMorning() {
+        return LocalTime.now(clock)
+                .isAfter(LocalTime.parse("06:00:00"))
+                && LocalTime.now(clock)
+                .isBefore(LocalTime.parse("12:00:00"));
+    }
 }
