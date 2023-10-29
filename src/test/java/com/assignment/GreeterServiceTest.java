@@ -29,7 +29,6 @@ public class GreeterServiceTest {
     @Test
     public void shouldCapitalizeName() {
         String name = greeterService.getGreetMessage("john");
-        assertThat(name, is("Good morning john"));
         assertThat(name, is("Good morning John"));
     }
 }
