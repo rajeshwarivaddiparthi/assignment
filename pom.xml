@@ -220,16 +220,4 @@
             </plugin>
         </plugins>
     </build>
-
-  <!--  <distributionManagement>
-        <repository>
-            <id>libs-release-local</id>
-            <url>http://build-repo-dc2.prod.impello.co.uk:8081/artifactory/libs-release-local</url>
-        </repository>
-        <snapshotRepository>
-            <id>libs-snapshot-local</id>
-            <url>http://build-repo-dc2.prod.impello.co.uk:8081/artifactory/libs-snapshot-local</url>
-        </snapshotRepository>
-    </distributionManagement>-->
-
 </project>
