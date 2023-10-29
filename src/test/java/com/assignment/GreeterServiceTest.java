@@ -54,4 +54,20 @@ public class GreeterServiceTest {
         assertThat(name, is("Good night John"));
     }
 
+    @Test
+    public void shouldReturnNightWhenTimeIsMidNight() {
+        Clock clock = Clock.fixed(Instant.from(ZonedDateTime.parse("2023-10-29T00:00:00Z")), ZoneId.systemDefault());
+        greeterService = new GreeterService(clock);
+        String name = greeterService.getGreetMessage("john");
+        assertThat(name, is("Good night John"));
+    }
+
+    @Test
+    public void shouldReturnNightWhenTimeIsAfterMidNightAndBefore6() {
+        Clock clock = Clock.fixed(Instant.from(ZonedDateTime.parse("2023-10-29T02:00:00Z")), ZoneId.systemDefault());
+        greeterService = new GreeterService(clock);
+        String name = greeterService.getGreetMessage("john");
+        assertThat(name, is("Good night John"));
+    }
+
 }
