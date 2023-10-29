@@ -34,6 +34,9 @@ public class GreeterService {
             return "Good night " + capitalizedName;
         }
 
+        return "Good afternoon " + capitalizedName;
+    }
+
     private boolean isMorning() {
         return LocalTime.now(clock)
                 .isAfter(LocalTime.parse("06:00:00"))
