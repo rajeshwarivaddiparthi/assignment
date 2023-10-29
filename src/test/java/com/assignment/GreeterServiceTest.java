@@ -45,4 +45,13 @@ public class GreeterServiceTest {
         String name = greeterService.getGreetMessage("john");
         assertThat(name, is("Good evening John"));
     }
+
+    @Test
+    public void shouldReturnNightWhenTimeIsBeforeMidNightAndAFter22() {
+        Clock clock = Clock.fixed(Instant.from(ZonedDateTime.parse("2023-10-29T23:00:00Z")), ZoneId.systemDefault());
+        greeterService = new GreeterService(clock);
+        String name = greeterService.getGreetMessage("john");
+        assertThat(name, is("Good night John"));
+    }
+
 }
